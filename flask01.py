@@ -1,10 +1,15 @@
-from flask import Flask,render_template
+from flask import Flask, render_template
 from flask import request
 from flask.ext.bootstrap import Bootstrap
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
 bootstrap = Bootstrap(app)
+
+app.config.from_object('config')
+db = SQLAlchemy(app)
+#import models
 
 @app.route('/')
 def hello_world():
